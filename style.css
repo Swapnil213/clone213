@@ -10,11 +10,23 @@ html, body{
     height: 100%;
 }
 
+#minicircle{
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    z-index: 99999;
+    background: #fff;
+    border-radius: 50%;
+}
+
 #main{
     width: 100%;
+    background: #000;
 }
 
 #hero{
+    position: relative;
     width: 100%;
     height: 100vh;
     background-color: black;
@@ -35,6 +47,13 @@ html, body{
     font-size: 18px;
     color: #fff;
 }
+.bounding{
+    width: fit-content;
+    overflow: hidden;
+}
+.bounding .boundingelem {
+    transform: translateX(100%);
+}
 #heading{
     margin-top: 90px;
 }
@@ -50,14 +69,20 @@ html, body{
     margin-left: 13vw;
 }
 .block-text{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
     width: fit-content;
 }
 .block-text h5{
     font-size: 1vw;
     text-transform: uppercase;
-    text-align: right;
+    text-align: right !important;
 }
 #chhotiheadings{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
     margin-top: 100px;
     padding-right: 50px;
     color: #fff;
