@@ -52,7 +52,7 @@ html, body{
     overflow: hidden;
 }
 .bounding .boundingelem {
-    transform: translateX(100%);
+    transform: translateY(100%);
 }
 #heading{
     margin-top: 90px;
