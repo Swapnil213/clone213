@@ -15,7 +15,7 @@ html, body{
     width: 10px;
     height: 10px;
     position: absolute;
-    z-index: 99999;
+    z-index: 999;
     background: #fff;
     border-radius: 50%;
 }
@@ -150,8 +150,8 @@ html, body{
     border-bottom: .5px solid #888;
 }
 .elem img{
-    display: none;
-    height: 100%;
+    opacity: 0;
+    height: 140%;
     position: absolute;
     z-index: 999;
 }

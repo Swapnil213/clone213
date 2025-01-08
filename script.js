@@ -58,7 +58,6 @@ function skewMouseTracker() {
 function circleMouseFollower(xscale, yscale) {
     window.addEventListener("mousemove", function (det) {
         document.querySelector("#minicircle").style.transform = `translate(${det.clientX}px, ${det.clientY}px) scale(${xscale},${yscale})`;
-        console.log(det.clientX);
     });
 }
 
@@ -68,10 +67,29 @@ firstPageAnim();
 
 document.querySelectorAll(".elem")
     .forEach(function (elem) {
+        elem.addEventListener("mouseleave", function (det) {
+            gsap.to(elem.querySelector("img"), {
+                opacity: 0,
+                duration: 0.5
+            });
+        });
+    });
+
+document.querySelectorAll(".elem")
+    .forEach(function (elem) {
+        var rotate = 0;
+        var diffrot = 0;
         elem.addEventListener("mousemove", function (det) {
+            var diff = det.clientY - elem.getBoundingClientRect().top;
+            diffrot = det.clientX - rotate;
+            rotate = det.clientX;
+            
             gsap.to(elem.querySelector("img"), {
                 opacity: 1,
-                ease: Power1
+                ease: Power3,
+                top: diff,
+                left: det.clientX,
+                rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5)
             });
         });
     });
